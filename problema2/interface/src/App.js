@@ -18,7 +18,7 @@ class App extends Component {
       <Navigation />
 
         <Route path="/" exact component={home}/>
-        <Route path="/perfil" component={profile}/>
+        <Route path="/clientes" component={profile}/>
         <Route path="/pedidos" component={order}/>
     </Router>
      );

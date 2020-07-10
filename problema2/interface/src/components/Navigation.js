@@ -33,8 +33,8 @@ class navigation extends Component {
               </Link>
             </li>
             <li className="nav-item active">
-              <Link className="nav-link" to="perfil">
-                Perfil
+              <Link className="nav-link" to="clientes">
+                Clientes
               </Link>
             </li>
           </ul>
