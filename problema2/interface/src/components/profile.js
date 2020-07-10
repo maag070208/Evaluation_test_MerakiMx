@@ -8,9 +8,10 @@ export default class profile extends Component {
   async componentDidMount() {
     const res = axios.get("http://localhost:3200/clientes");
 
-    this.setState({ users: (await res).data });
+   this.setState({ users: (await res).data });
+    console.log(res.data);
   }
-
+ 
   render() {
     return (
       <div className="row">
