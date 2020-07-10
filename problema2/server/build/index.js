@@ -6,10 +6,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const morgan_1 = __importDefault(require("morgan"));
 const cors_1 = __importDefault(require("cors"));
+//aqui van nuestras rutas
 const indexRoute_1 = __importDefault(require("./routes/indexRoute"));
 const productoRoute_1 = __importDefault(require("./routes/productoRoute"));
 const clienteRoute_1 = __importDefault(require("./routes/clienteRoute"));
-//creamos una clase llama Server
+const pedidoRoute_1 = __importDefault(require("./routes/pedidoRoute"));
+/*
+* creamos una clase llama Server
+* dentro de esa clase instanciaremos express,morgan y cors
+* definiremos en expres que se usara json
+*abrimos el puerto 3200 ahi estaran nuestas API
+*/
 class Server {
     constructor() {
         this.app = express_1.default();
@@ -29,6 +36,7 @@ class Server {
         this.app.use('/', indexRoute_1.default);
         this.app.use('/productos', productoRoute_1.default);
         this.app.use('/clientes', clienteRoute_1.default);
+        this.app.use('/pedidos', pedidoRoute_1.default);
     }
     //aqui iniciamos el servidor 
     start() {
