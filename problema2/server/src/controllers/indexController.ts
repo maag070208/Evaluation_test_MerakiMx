@@ -1,5 +1,5 @@
 import {Request, Response} from 'express';
-import pool from '../keys';
+import pool from '../database';
 
 class IndexController  {
  	
