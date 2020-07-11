@@ -21,5 +21,11 @@ class PedidoController {
             res.json(pedidos);
         });
     }
+    hora(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const pedidos = yield database_1.default.query('SELECT id, from_unixtime(FechaPedido) from Pedidos');
+            res.json(pedidos);
+        });
+    }
 }
 exports.pedidoController = new PedidoController;

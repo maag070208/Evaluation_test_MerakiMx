@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-
+import "../../src/home.css";
+import { Link } from "react-router-dom";
 export default class home extends Component {
   state = {
     productos: [],
@@ -15,32 +16,44 @@ export default class home extends Component {
 
   render() {
     return (
-      <div className="card ">
+      <div className="container">
         {this.state.productos.map((producto) => (
-          <div className="container">
-            <div className="row">
-              <div className="col-md-12">
-                <div className="col-sm-6 col-md-4">
-                  <div className="thumbnail border ml-5 mt-3">
-                    <img
-                      src={producto.Img}
-                      className="img-responsive w-50"
-                    >
-                    </img>
-                    <div className="caption bg-dark text-light">
-                      <div className="row">
-                        <div className="col-md-6 col-xs-6">
-                          <h3> {producto.Nombre} </h3>
-                        </div>
-                        <div className="col-md-6 col-xs-6 price">
-                          <h3>
-                            <label> ${producto.Precio} </label>
-                          </h3>
-                        </div>
-                      </div>
-                      <h5> Este bajo electrico es preferible usarlo en este estilo de musica {producto.Categoria} </h5>
-                    </div>
+          <div class="row">
+            <div class="col-md-3 col-sm-6">
+              <div class="product-grid">
+                <div class="product-image">
+                  <a>
+                    <img class="pic-1" src={producto.Img}></img>
+                    <img class="pic-2" src={producto.Img}></img>
+                  </a>
+                  <ul class="social">
+                    <li>
+                      <Link to="/pedidos" data-tip="Add to Cart">
+                        <i class="fa fa-shopping-cart"></i>
+                      </Link>
+                    </li>
+                  </ul>
+                  <span class="product-new-label">Sale</span>
+                  <span class="product-discount-label">20%</span>
+                </div>
+                <ul class="rating mb-5">
+                  <li class="fa fa-star"></li>
+                  <li class="fa fa-star"></li>
+                  <li class="fa fa-star"></li>
+                  <li class="fa fa-star"></li>
+                  <li class="fa fa-star"></li>
+                </ul>
+                <div class="product-content">
+                  <h3 class="title">
+                    <h3> {producto.Nombre} </h3>
+                  </h3>
+                  <div class="price">
+                    ${producto.Precio}
+                    <span>$3000</span>
                   </div>
+                  <Link class="add-to-cart" to="/pedidos">
+                    + Add To Cart
+                  </Link>
                 </div>
               </div>
             </div>

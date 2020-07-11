@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import "../../src/profile.css";
 export default class profile extends Component {
   state = {
     users: [],
@@ -14,46 +15,42 @@ export default class profile extends Component {
 
   render() {
     return (
-      <div>
+      <section>
         {this.state.users.map((user) => (
-          <div className="container">
-            <div className="row">
-              <div className="col-xs-12 col-sm-6 col-md-6 text-light">
-                <div className="well well-sm  bg-dark">
-                  <div className="row border mt-5  bg-dark">
-                    <div className="col-sm-6 col-md-4">
+          <div class="container">
+            <div class="row"></div>
+            <div class="container">
+              <div class="row team-row">
+                <div class="col-md-4 col-sm-6 team-wrap">
+                  <div class="team-member text-center">
+                    <div class="team-img">
                       <img
                         src={user.Img}
                         alt=""
-                        className="img-rounded img-responsive w-75"
-                      />
-                    </div>
-                    <div className="col-sm-6 col-md-8">
-                      <h4> {user.Nombre} </h4>
-                      <small>
-                        <cite title="San Francisco, USA">
-                         
-                          {user.Direccion}
-                          <i className="glyphicon glyphicon-map-marker"></i>
-                        </cite>
-                      </small>
-                      <p>
-                        <i className="glyphicon glyphicon-gift"></i>{user.Pais}
-                      </p>
-
-                      <div className="btn-group">
-                        <button  type="button" className="btn btn-primary">
-                          Perfil
-                        </button>
+                      ></img>
+                      <div class="overlay-team">
+                        <div class="team-details text-center">
+                          <div class="socials mt-20">
+                            <a href="#">
+                              <i class="fa fa-trash-o " aria-hidden="true"></i>
+                            </a>
+                            <a href="#">
+                              <i class="fa fa-pencil " aria-hidden="true"></i>
+                            </a>
+                          </div>
+                        </div>
                       </div>
                     </div>
+                    <h6 class="team-title"> {user.Nombre} </h6>
+                    <h4> {user.Direccion} </h4>
+                    <span> {user.Pais} </span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         ))}
-      </div>
+      </section>
     );
   }
 }
