@@ -9,7 +9,8 @@ class ClienteRoute {
     }
 
     config(){
-        this.router.get('/', clienteController.list)
+        this.router.get('/', clienteController.list);
+        this.router.post('/', clienteController.insert);
     }
 }
 

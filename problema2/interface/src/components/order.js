@@ -31,7 +31,7 @@ export default class order extends Component {
                     <h3>Nombre Producto: {pedido.NombrePedido}</h3>
                   </div>
                   <div className="product-desc">Fecha: {pedido.FechaPedido}</div>
-                  <di className="product-desc"><h5>Nombre Cliente: {pedido.NombreCliente}</h5></di>
+                  <div className="product-desc"><h5>Nombre Cliente: {pedido.NombreCliente}</h5></div>
                   <div className="product-rating">
                     <i className="fa fa-star gold"></i>
                     <i className="fa fa-star gold"></i>

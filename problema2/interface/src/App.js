@@ -7,6 +7,7 @@ import Navigation from './components/Navigation';
 import home from './components/home';
 import order from './components/order';
 import profile from './components/profile';
+import form from './components/form';
 
 class App extends Component {
 
@@ -20,6 +21,7 @@ class App extends Component {
         <Route path="/" exact component={home}/>
         <Route path="/clientes" component={profile}/>
         <Route path="/pedidos" component={order}/>
+        <Route path="/form" component={form}/>
     </Router>
      );
   }

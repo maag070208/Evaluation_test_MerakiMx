@@ -17,9 +17,15 @@ const database_1 = __importDefault(require("../database"));
 class ClienteController {
     list(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const clientes = yield database_1.default.query('SELECT * FROM Clientes');
+            const clientes = yield database_1.default.query("SELECT * FROM Clientes");
             res.json(clientes);
         });
     }
+    insert(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield database_1.default.query("INSERT INTO Clientes SET ?", [req.body]);
+            res.json({ message: "Cliente Guardado" });
+        });
+    }
 }
-exports.clienteController = new ClienteController;
+exports.clienteController = new ClienteController();
