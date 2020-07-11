@@ -8,30 +8,51 @@ export default class profile extends Component {
   async componentDidMount() {
     const res = axios.get("http://localhost:3200/clientes");
 
-   this.setState({ users: (await res).data });
+    this.setState({ users: (await res).data });
     console.log(res.data);
   }
- 
+
   render() {
     return (
-      <div className="row">
-        <ul className="list-group">
-          {this.state.users.map((user) => (
-            <div className="container w-100 p-3 ml-5" key={user._id}>
-              <a  className="list-group-item list-group-item-action active pl-4 border">
-                <div className="d-flex w-100 justify-content-between">
-                  <h5 className="mb-1">{user.Nombre}</h5>
-                  
+      <div>
+        {this.state.users.map((user) => (
+          <div className="container">
+            <div className="row">
+              <div className="col-xs-12 col-sm-6 col-md-6 text-light">
+                <div className="well well-sm  bg-dark">
+                  <div className="row border mt-5  bg-dark">
+                    <div className="col-sm-6 col-md-4">
+                      <img
+                        src={user.Img}
+                        alt=""
+                        className="img-rounded img-responsive w-75"
+                      />
+                    </div>
+                    <div className="col-sm-6 col-md-8">
+                      <h4> {user.Nombre} </h4>
+                      <small>
+                        <cite title="San Francisco, USA">
+                         
+                          {user.Direccion}
+                          <i className="glyphicon glyphicon-map-marker"></i>
+                        </cite>
+                      </small>
+                      <p>
+                        <i className="glyphicon glyphicon-gift"></i>{user.Pais}
+                      </p>
+
+                      <div className="btn-group">
+                        <button  type="button" className="btn btn-primary">
+                          Perfil
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <p className="mb-1">
-                 {user.Direccion}
-                </p>
-                <small>{user.Pais}</small>
-              </a>
-             
+              </div>
             </div>
-          ))}
-        </ul>
+          </div>
+        ))}
       </div>
     );
   }

@@ -15,25 +15,38 @@ export default class home extends Component {
 
   render() {
     return (
-        <div className="card ">
-          {this.state.productos.map((producto) => (
-            <div className="card text-center">
-            <div className="card-header mt-5  bg-primary">
-             {producto.Id}
-            </div>
-            <div className="card-body  cardbg">
-              <h5 className="card-title"> {producto.Nombre} </h5>
-              <p className="card-text"> {producto.Categorias} </p>
-              <a  className="card-text"> {producto.Precio} </a>
-              <br></br>
-              <a  className="btn btn-primary active mt-4"> Comprar </a>
-            </div>
-            <div className="card-footer text-muted cardbg">
-              2 days ago
+      <div className="card ">
+        {this.state.productos.map((producto) => (
+          <div className="container">
+            <div className="row">
+              <div className="col-md-12">
+                <div className="col-sm-6 col-md-4">
+                  <div className="thumbnail border ml-5 mt-3">
+                    <img
+                      src={producto.Img}
+                      className="img-responsive w-50"
+                    >
+                    </img>
+                    <div className="caption bg-dark text-light">
+                      <div className="row">
+                        <div className="col-md-6 col-xs-6">
+                          <h3> {producto.Nombre} </h3>
+                        </div>
+                        <div className="col-md-6 col-xs-6 price">
+                          <h3>
+                            <label> ${producto.Precio} </label>
+                          </h3>
+                        </div>
+                      </div>
+                      <h5> Este bajo electrico es preferible usarlo en este estilo de musica {producto.Categoria} </h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          ))}
-        </div> 
+        ))}
+      </div>
     );
   }
 }
